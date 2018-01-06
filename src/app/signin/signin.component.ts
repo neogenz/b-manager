@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import {JwtHelperService } from '@auth0/angular-jwt';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import 'rxjs/add/operator/first';
+import { AuthService } from './auth.service';
 
 @Component({
     selector: 'app-signin',
@@ -15,7 +16,7 @@ export class SigninComponent implements OnInit {
     public hide = true;
     public password: FormControl = new FormControl('', [Validators.required]);
 
-    constructor(private httpClient: HttpClient, jwtHelperService: JwtHelperService) {
+    constructor(private httpClient: HttpClient, jwtHelperService: JwtHelperService, private authService: AuthService) {
     }
 
     ngOnInit() {
@@ -28,13 +29,10 @@ export class SigninComponent implements OnInit {
     }
 
     public signin(): void {
-        this.httpClient.post('http://budgetmanager.mdesogus.com/signin', {
-            email: this.email.value,
-            password: this.password.value
-        }).first().subscribe((token) => {
-            localStorage.setItem('access_token', JSON.stringify(token));
-            const expTime = authResult.expiresIn * 1000 + Date.now();
-            setLoggedIn
-        });
+        this.authService.signin(this.email.value, this.password.value)
+            .first()
+            .subscribe((signinResponse) => {
+
+            });
     }
 }

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import { HttpClient } from "@angular/common/http";
-import "rxjs/add/operator/switchMap";
-import "rxjs/add/operator/map";
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/map';
+import { SigninResponse } from "../models/SigninResponse";
 
 @Injectable()
 export class AuthService {
@@ -20,13 +21,13 @@ export class AuthService {
         return Date.now() < expiresAt;
     }
 
-    public signin(email: string, password: string): Observable<any> {
-        return this.httpClient.post('http://budgetmanager.mdesogus.com/signin', {
+    public signin(email: string, password: string): Observable<SigninResponse> {
+        return this.httpClient.post<SigninResponse>('http://budgetmanager.mdesogus.com/signin', {
             email: email,
             password: password
         }).map((response) => {
             this.setSession(response.token);
-            return token;
+            return response;
         });
     }
 
