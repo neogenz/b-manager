@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>{{forecast.name}}</mat-card-title>
+    <div class="sections">
+      <div class="section">
+        <mat-card-subtitle><span class="label">Initial :</span> <span class="value">{{baseAmount}} {{devise}}</span>
+        </mat-card-subtitle>
+      </div>
+      <div class="section">
+        <mat-card-subtitle><span class="label">En ce moment :</span> <span
+          class="value">{{realAmount}} {{devise}}</span></mat-card-subtitle>
+      </div>
+      <div class="section">
+        <mat-card-subtitle><span class="label">Prévu :</span> <span class="value">{{plannedAmount}} {{devise}}</span>
+        </mat-card-subtitle>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
