@@ -1,0 +1,20 @@
+<div class="center">
+    <mat-card>
+        <mat-card-content>
+            <form>
+                <mat-form-field>
+                    <input matInput placeholder="Entrez votre email" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Entrez vorte mot de passe" [formControl]="password"
+                           [type]="hide ? 'password' : 'text'" required>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="signin()">Connexion</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

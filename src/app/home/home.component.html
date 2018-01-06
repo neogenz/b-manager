@@ -1,0 +1,15 @@
+<mat-card>
+    <!--<mat-card-header>-->
+    <!--<p>Compte rendu</p>-->
+    <!--</mat-card-header>-->
+    <mat-card-content>
+        <mat-card-title>Compte rendu</mat-card-title>
+        <div class="sections">
+            <div class="section" *ngFor="let section of sections">
+                <p>{{section.name}}</p>
+                <mat-card-subtitle><p>{{section.amount}} {{devise}}</mat-card-subtitle>
+            </div>
+        </div>
+
+    </mat-card-content>
+</mat-card>
