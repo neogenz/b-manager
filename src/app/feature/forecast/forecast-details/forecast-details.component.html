@@ -1,0 +1,14 @@
+<!--<mat-grid-list cols="{{cols}}" rowHeight="1:1" (window:resize)="onResize($event)">-->
+<!--<mat-grid-tile *ngFor="let movement of forecast.movements">-->
+
+<!--</mat-grid-tile>-->
+<!--</mat-grid-list>-->
+
+<!--</div>-->
+<div class="row">
+  <ng-container *ngFor="let movement of forecast.movements; let i = index;">
+    <div class="col-12 mt-4 col-md-3">
+      <app-movement [movement]="movement"></app-movement>
+    </div>
+  </ng-container>
+</div>

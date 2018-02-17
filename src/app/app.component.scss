@@ -31,10 +31,24 @@ $config: mat-typography-config();
 	}
 
 	.filler-content {
-		padding: 60px;
+		padding-left: 4em;
+    padding-right: 4em;
+    padding-top: 3em;
 	}
 }
 
 mat-sidenav-content {
 	padding: 1em;
+}
+
+mat-toolbar{
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+.container{
+  margin-top: 64px;
 }

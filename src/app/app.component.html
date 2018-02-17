@@ -1,18 +1,29 @@
 <div class="sidenav-area">
   <mat-sidenav-container>
-    <mat-sidenav #start [opened]="true" [mode]="'side'"
+    <mat-sidenav #sidenav [opened]="false" [mode]="'over'"
                  [fixedInViewport]="true">
-      <h3>BManager</h3>
+      <h3 [routerLink]="['home']" class="mt-3">Menu</h3>
       <div class="filler-content">
         <button mat-button [routerLink]="['signin']">Connexion</button>
       </div>
       <div class="filler-content" *ngIf="authService.authenticated">
-        <button mat-button [routerLink]="['previsions']">Prévisions</button>
+        <button mat-button [routerLink]="['forecast']">Prévisions</button>
       </div>
+
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <router-outlet></router-outlet>
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>view_headline</mat-icon>
+        </button>
+        <span class="center">
+          BManager
+        </span>
+      </mat-toolbar>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
